@@ -1169,7 +1169,7 @@
         title: 'Ajrakh Sovereign Chunky Runner',
         category: 'Artisan Heritage Sneakers',
         price: 4299,
-        image: SHOE_ASSETS.ajrakh,
+        image: SHOE_ASSETS.ajrakh, fallbackImage: 'shoe-ajrakh-runner.jpg',
         sizes: ['UK 11', 'UK 11.5', 'UK 12', 'UK 12.5', 'UK 13', 'UK 14', 'UK 15'],
         refUk12LengthMm: 308,
         refUk12WidthMm: 115,
@@ -1195,7 +1195,7 @@
         title: 'Pochampally Indigo Ikat High-Top',
         category: 'High-Tops & Boots',
         price: 4599,
-        image: SHOE_ASSETS.ikat,
+        image: SHOE_ASSETS.ikat, fallbackImage: 'shoe-ikat-hightop.jpg',
         sizes: ['UK 11', 'UK 11.5', 'UK 12', 'UK 13', 'UK 14', 'UK 15'],
         refUk12LengthMm: 310,
         refUk12WidthMm: 114,
@@ -1221,7 +1221,7 @@
         title: 'Crimson Bandhani Trail Sneaker',
         category: 'Athletic & Running',
         price: 3999,
-        image: SHOE_ASSETS.bandhani,
+        image: SHOE_ASSETS.bandhani, fallbackImage: 'shoe-bandhani-retro.jpg',
         sizes: ['UK 11', 'UK 12', 'UK 13', 'UK 14', 'UK 15'],
         refUk12LengthMm: 307,
         refUk12WidthMm: 114,
@@ -1247,7 +1247,7 @@
         title: 'Machilipatnam Kalamkari Court Classic',
         category: 'Artisan Heritage Sneakers',
         price: 3899,
-        image: SHOE_ASSETS.kalamkari,
+        image: SHOE_ASSETS.kalamkari, fallbackImage: 'shoe-kalamkari-court.jpg',
         sizes: ['UK 11', 'UK 11.5', 'UK 12', 'UK 12.5', 'UK 13', 'UK 14'],
         refUk12LengthMm: 307,
         refUk12WidthMm: 112,
@@ -1511,10 +1511,10 @@
           <article class="group rounded-2xl bg-white border border-gaja-border hover:border-gaja-gold transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-subtle hover:shadow-card-hover">
             <div>
               <!-- Card Top Image / Render View -->
-              <div class="relative bg-gaja-surface overflow-hidden aspect-[4/3] flex items-center justify-center p-4 cursor-pointer" onclick="openShowcaseModal('${p.id}')">
+              <div class="relative bg-gaja-surface overflow-hidden h-56 sm:h-64 w-full flex items-center justify-center p-3 cursor-pointer" onclick="openShowcaseModal('${p.id}')">
                 ${
                   hasPhoto
-                    ? `<img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105" loading="lazy" />`
+                    ? `<img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105" onerror="if(this.src!='${p.fallbackImage}'){this.src='${p.fallbackImage}';}" />`
                     : `<div class="w-full h-full flex flex-col items-center justify-center text-center p-4 text-gaja-charcoal">
                         <i class="fa-solid fa-shoe-prints text-4xl text-gaja-gold/60 mb-2"></i>
                         <span class="font-serif font-bold text-base text-gaja-navy">${p.title}</span>
